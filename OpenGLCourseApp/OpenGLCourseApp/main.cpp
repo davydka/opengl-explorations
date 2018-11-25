@@ -25,6 +25,9 @@ int main()
 	// Allow forward compatibility
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
+	// DW fun1, must be setup before glfwCreateWindow
+	glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
+
 	GLFWwindow *mainWindow = glfwCreateWindow(width, height, "Cool Window", NULL, NULL);
 	if (!mainWindow)
 	{
@@ -32,6 +35,9 @@ int main()
 		glfwTerminate();
 		return 1;
 	}
+
+	// DW fun2, must be setup after glfwCreateWindow
+	glfwSetWindowPos(mainWindow, 100, 100);
 
 	// Get buffer size information
 	int bufferWidth;
